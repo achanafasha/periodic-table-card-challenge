@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table Card Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <p class="subtitle">CHEMISTRY LEARNING GAME</p>
+        <h1>PERIODIC TABLE</h1>
+        <h2>CARD CHALLENGE</h2>
+        <p>Berani mengambil tantangan?</p>
+    </header>
+
+    <main class="container">
+
+        <section id="home">
+            <h2>Selamat Datang!</h2>
+            <p>Uji kemampuanmu dalam materi Sistem Periodik Unsur.</p>
+
+            <label for="studentName">Nama Siswa</label>
+            <input type="text" id="studentName"
+                   placeholder="Masukkan nama kamu">
+
+            <h3>Pilih Level Tantangan</h3>
+
+            <div class="levels">
+                <button class="level easy" onclick="selectLevel('mudah')">
+                    🌱<br>MUDAH<br>8 KARTU
+                </button>
+
+                <button class="level medium" onclick="selectLevel('sedang')">
+                    ⚡<br>SEDANG<br>5 KARTU
+                </button>
+
+                <button class="level hard" onclick="selectLevel('sulit')">
+                    🔥<br>SULIT<br>3 KARTU
+                </button>
+            </div>
+
+            <p id="selectedLevel">Silakan pilih level terlebih dahulu.</p>
+
+            <button id="startButton" onclick="startGame()" disabled>
+                MULAI TANTANGAN
+            </button>
+        </section>
+
+        <section id="game" hidden>
+            <h2 id="welcome"></h2>
+            <p id="cardProgress"></p>
+
+            <div class="card">
+                <h3>KARTU TANTANGAN</h3>
+                <p id="question"></p>
+                <button onclick="showAnswer()">Lihat Jawaban</button>
+                <p id="answer" hidden></p>
+            </div>
+
+            <div class="grading">
+                <button onclick="markAnswer(true)">BENAR ✓</button>
+                <button onclick="markAnswer(false)">SALAH ✕</button>
+            </div>
+
+            <button id="nextButton" onclick="nextCard()" hidden>
+                KARTU BERIKUTNYA
+            </button>
+        </section>
+
+        <section id="result" hidden>
+            <h2>Tantangan Selesai!</h2>
+            <h3 id="finalName"></h3>
+            <p id="finalScore"></p>
+            <button onclick="location.reload()">MAIN LAGI</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>PERIODIC TABLE CARD CHALLENGE</p>
+        <p>Learn Chemistry, Have Fun!</p>
+    </footer>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
