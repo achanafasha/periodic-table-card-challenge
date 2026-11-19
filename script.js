@@ -12,13 +12,8 @@ const cardCount = {
     sulit: 3
 };
 
-
 function selectLevel(level) {
     selectedLevel = level;
-
-    document.querySelectorAll(".level").forEach(button => {
-        button.classList.remove("selected");
-    });
 
     const buttonClasses = {
         mudah: "easy",
@@ -26,8 +21,17 @@ function selectLevel(level) {
         sulit: "hard"
     };
 
-    document.querySelector("." + buttonClasses[level])
-        .classList.add("selected");
+    document.querySelectorAll(".level").forEach(button => {
+        button.classList.remove("selected");
+    });
+
+    const selectedButton = document.querySelector(
+        "." + buttonClasses[level]
+    );
+
+    if (selectedButton) {
+        selectedButton.classList.add("selected");
+    }
 
     document.getElementById("selectedLevel").textContent =
         "Level " + level.toUpperCase() +
