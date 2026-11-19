@@ -12,6 +12,7 @@ const cardCount = {
     sulit: 3
 };
 
+
 function selectLevel(level) {
     selectedLevel = level;
 
@@ -19,11 +20,14 @@ function selectLevel(level) {
         button.classList.remove("selected");
     });
 
-    const selectedButton = document.querySelector(
-        "." + level
-    );
+    const buttonClasses = {
+        mudah: "easy",
+        sedang: "medium",
+        sulit: "hard"
+    };
 
-    selectedButton.classList.add("selected");
+    document.querySelector("." + buttonClasses[level])
+        .classList.add("selected");
 
     document.getElementById("selectedLevel").textContent =
         "Level " + level.toUpperCase() +
